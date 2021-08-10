@@ -1,0 +1,115 @@
+extends base
+
+block content
+    .container.mb-5.pb-3
+        .overflow-hidden
+            .row
+                // Content
+                section.col-lg-8.pt-lg-4.pb-4.mb-3
+                    .pt-2.px-4.ps-lg-0.pe-xl-5
+                        // Title
+                        .d-sm-flex.flex-wrap.justify-content-between.align-items-center.pb-2
+                            h2.h3.py-2.me-2.text-center.text-sm-start
+
+                        form.saleForm(data-id=user.id)
+                            .mb-3.pb-2
+                                label.form-label(for='region') Region of Rep
+                                input#region.form-control(type='text' value=user.region || 'Greater Accra' disabled)
+                                .form-text Cannot be edited.
+                            .mb-3.pb-2
+                                label.form-label(for='target') Target Sale
+                                input#target.form-control(type='number' value=10000 disabled)
+                                .form-text Cannot be edited.
+                            .mb-3.pb-2
+                                label.form-label(for='actual') Actual Sale
+                                input#actual.form-control(type='number')
+                                .form-text Your actual sales made this week.
+                            .mb-3.pb-2
+                                label.form-label(for='totalVisits') Total Visits
+                                input#totalVisits.form-control(type='number')
+                                .form-text Your total visits made this week.
+                            .mb-3.pb-2
+                                label.form-label(for='pharmacies') Pharmacies Visited
+                                input#pharmacies.form-control(type='number')
+                                .form-text The number of pharmacies you visited this week.
+                            .mb-3.pb-2
+                                label.form-label(for='hospitals') Hospitals Visited
+                                input#hospitals.form-control(type='number')
+                                .form-text The number of hospitals you visited this week.
+                            .mb-3.pb-2
+                                label.form-label(for='otherFacilities') Other Facilities Visited
+                                input#otherFacilities.form-control(type='number')
+                                .form-text OTCMS, Herbal & Other Facilities you visited this week.
+                            .mb-3.pb-2
+                                label.form-label(for='daysWorked') Days Worked
+                                input#daysWorked.form-control(type='number')
+                                .form-text The number of days you worked this week.
+                            .mb-3.pb-2
+                                label.form-label(for='numOfOrders') Total Number Of Orders
+                                input#numOfOrders.form-control(type='number')
+                                .form-text The total number of orders you received this week.
+                            .mb-3.pb-2
+                                label.form-label(for='valOfOrders') Total Value Of Orders
+                                input#valOfOrders.form-control(type='number')
+                                .form-text The total value of orders you received this week.
+                            .mb-3.pb-2
+                                label.form-label(for='numOfCollections') Total Number Of Collections
+                                input#numOfCollections.form-control(type='number')
+                                .form-text The total number of Collections you made this week.
+                            .mb-3.pb-2
+                                label.form-label(for='valOfOrders') Total Value Of Collections
+                                input#valOfCollections.form-control(type='number')
+                                .form-text The total value of Collections you received this week.
+
+                            h6 Products & Quantities Sold
+                            br
+                            each product in products
+                                .input-group
+                                    //- span.input-group-text.fw-medium Full name
+                                    input(type="text", placeholder="" value=product.title disabled).form-control
+                                    input(type="number", placeholder="0" data-product=product).form-control
+                            .mb-3.pb-2
+                                label.form-label(for='year') Year
+                                input#year.form-control(type='number' value=2021 disabled)
+                                //- .form-text Your actual sales made this week.
+                            .mb-3.pb-2
+                                label.form-label(for='month') Month
+                                input#month.form-control(type='text' value="August" disabled)
+                                //- .form-text Your actual sales made this week.
+                            .mb-3
+                                label(for="week").form-label
+                                    | Select Week
+                                select(id="week").form-select
+                                    option Week 1
+                                    option Week 2
+                                    option Week 3
+                                    option Week 4
+                            
+                            h5 Remarks
+                            // REMARKS
+                            .form-floating.mb-3
+                                textarea(id="expenses", style="height: 120px;", placeholder="Your Expenses").form-control
+                                label(for="expenses") Expenses
+                            .form-floating.mb-3
+                                textarea(id="experience", style="height: 120px;", placeholder="Your Experience").form-control
+                                label(for="experience") Experience
+                            .form-floating.mb-3
+                                textarea(id="plan", style="height: 120px;", placeholder="Your Plan for the week").form-control
+                                label(for="plan") Plan
+                            .form-floating.mb-3
+                                textarea(id="returns", style="height: 120px;", placeholder="Your Returns").form-control
+                                label(for="returns") Returns
+                            .form-floating.mb-3
+                                textarea(id="bouncedCheques", style="height: 120px;", placeholder="Your Bounced Cheques").form-control
+                                label(for="bouncedCheques") Bounced Cheques
+                            .form-floating.mb-3
+                                textarea(id="pendingOrders", style="height: 120px;", placeholder="Your Pending Orders").form-control
+                                label(for="pendingOrders") Pending Orders
+                            .form-floating.mb-3
+                                textarea(id="weeklyMeetings", style="height: 120px;", placeholder="Your Weekly Meetings").form-control
+                                label(for="weeklyMeetings") Weekly Meetings
+
+                            button.btn.btn-primary.d-block.w-100.saleBtn(type='submit')
+                                i.ci-cloud-upload.fs-lg.me-2
+                                | Create Sale
+

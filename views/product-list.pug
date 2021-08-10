@@ -1,0 +1,40 @@
+extends base
+
+block content
+    .container.mb-5.pb-3
+        .overflow-hidden
+            .row
+                // Content
+                section.col-lg-8.pt-lg-4.pb-4.mb-3
+                    // Launch default modal
+                    a(type="button" href='/products/add').btn.btn-primary.btn-shadow
+                        | Add Product
+                    // Basic table
+                    .table-responsive
+                        table.table
+                            thead
+                                tr
+                                    th Title
+                                    th Actual Price
+                                    th Discount Price
+                                    th View
+                                    th Edit
+                                    th Delete
+                            tbody
+                                each product in products
+                                    tr
+                                        td= product.title
+                                        td= product.price
+                                        td= product.priceDiscount
+                                        td
+                                            a(href=`#` type="button").btn.btn-secondary.btn-icon
+                                                i.ci-eye
+                                        td
+                                            a(href=`/products/${product.slug}/edit` type="button").btn.btn-info.btn-icon
+                                                i.ci-edit
+                                        td
+                                            button.deleteProduct(type="button" data-product=product data-bs-toggle="modal", data-bs-target="#delete").btn.btn-danger.btn-icon
+                                                i.ci-trash
+                                                
+                include _deleteProduct
+                

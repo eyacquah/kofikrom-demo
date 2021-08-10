@@ -1,0 +1,44 @@
+nav.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0.shadow
+  a.navbar-brand.col-md-3.col-lg-2.mr-0.px-3(href='/admin') ACQUALEX ENTERPRISE
+  button.navbar-toggler.position-absolute.d-md-none.collapsed(type='button' data-toggle='collapse' data-target='#sidebarMenu' aria-controls='sidebarMenu' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  input.form-control.form-control-dark.w-100(type='text' placeholder='Search' aria-label='Search')
+  ul.navbar-nav.px-3
+    li.nav-item.text-nowrap
+      a.logout.nav-link(href='#') Sign out
+.container-fluid
+  .row
+    nav#sidebarMenu.col-md-3.col-lg-2.d-md-block.bg-light.sidebar.collapse
+      .sidebar-sticky.pt-3
+        ul.nav.flex-column
+          li.nav-item
+            a.nav-link.active(href='/admin')
+              i.house-door-fill
+              span(data-feather='home')
+              |                   Dashboard 
+              span.sr-only (current)
+          li.nav-item
+            a.nav-link(href='/admin/orders/all')
+              span(data-feather='file')
+              |                   Orders
+          li.nav-item
+            a.nav-link(href='/admin/categories/all')
+              span(data-feather='shopping-cart')
+              |                   Products
+          li.nav-item
+            a.nav-link(href='/admin/customers/all')
+              span(data-feather='users')
+              |                   Customers
+          li.nav-item
+            a.nav-link(href='/admin/branches/all')
+              span(data-feather='bar-chart-2')
+              |                  Branches
+       
+    main.col-md-9.ml-sm-auto.col-lg-10.px-md-4(role='main')
+      .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
+        h1.h2= `Hello Manuel`
+        .btn-toolbar.mb-2.mb-md-0
+          .btn-group(role='group' aria-label='Third group')
+            a.btn.btn-sm.btn-outline-dark(href='/admin/orders/add' role='button') Create Order
+          .btn-group(role='group' aria-label='Third group')
+            a.btn.btn-sm.btn-outline-danger(href='/admin/refunds/add' role='button') Add Refund

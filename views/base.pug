@@ -1,0 +1,128 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title Kofikrom Demo
+        // Viewport
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        // Favicon and Touch Icons
+        //- link(rel='shortcut icon' href='/assets/images/logo.png' type='image/png')
+        // Vendor Styles including: Font Icons, Plugins, etc.
+        link(rel='stylesheet' media='screen' href='/assets/theme/vendor/simplebar/dist/simplebar.min.css')
+        link(rel='stylesheet' media='screen' href='/assets/theme/vendor/tiny-slider/dist/tiny-slider.css')
+        // Main Theme Styles + Bootstrap
+        link(rel='stylesheet' media='screen' href='/assets/theme/css/theme.min.css')
+
+        // Bootstrap core CSS
+
+        style.
+            .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            }
+            @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+            }
+            }
+        // Custom styles for this template
+        link(href='/assets/css/dashboard.css' rel='stylesheet')
+    body
+        header.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0.shadow
+            a.navbar-brand.col-md-3.col-lg-2.me-0.px-3(href='/') Kofikrom Pharmacy Ltd
+            button.navbar-toggler.position-absolute.d-md-none.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#sidebarMenu' aria-controls='sidebarMenu' aria-expanded='false' aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+            input.form-control.form-control-dark.w-100(type='text' placeholder='Search' aria-label='Search')
+            .navbar-nav
+                .nav-item.text-nowrap
+                    a.nav-link.px-3(href='#') Sign out
+        .container-fluid
+            .row
+                nav#sidebarMenu.col-md-3.col-lg-2.d-md-block.bg-light.sidebar.collapse
+                    .position-sticky.pt-3
+                        ul.nav.flex-column
+                            li.nav-item
+                                a.nav-link(aria-current='page' href='/')
+                                    span(data-feather='home')
+                                    |               Dashboard
+                            li.nav-item
+                                a.nav-link(href='/sales/add')
+                                    span(data-feather='file')
+                                    |               Sales
+                            li.nav-item
+                                a.nav-link(href='/categories/all')
+                                    span(data-feather='grid')
+                                    |               Categories
+                            li.nav-item
+                                a.nav-link(href='/products/all')
+                                    span(data-feather='shopping-cart')
+                                    |               Products
+                            li.nav-item
+                                a.nav-link(href='/collections/add')
+                                    span(data-feather='users')
+                                    |               Collections
+                            li.nav-item
+                                a.nav-link(href='#')
+                                    span(data-feather='bar-chart-2')
+                                    |               Reports
+                            li.nav-item
+                                a.nav-link(href='#')
+                                    span(data-feather='layers')
+                                    |               Integrations
+                        h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+                            span Saved reports
+                            a.link-secondary(href='#' aria-label='Add a new report')
+                                span(data-feather='plus-circle')
+                        ul.nav.flex-column.mb-2
+                            li.nav-item
+                                a.nav-link(href='#')
+                                    span(data-feather='file-text')
+                                    |               Current month
+                            li.nav-item
+                                a.nav-link(href='#')
+                                    span(data-feather='file-text')
+                                    |               Last quarter
+                            li.nav-item
+                                a.nav-link(href='#')
+                                    span(data-feather='file-text')
+                                    |               Social engagement
+                            li.nav-item
+                                a.nav-link(href='#')
+                                    span(data-feather='file-text')
+                                    |               Year-end sale
+                main.col-md-9.ms-sm-auto.col-lg-10.px-md-4
+                    .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
+                        h1.h2= title || Dashboard
+                        .btn-toolbar.mb-2.mb-md-0
+                            .btn-group.me-2
+                                button.btn.btn-sm.btn-outline-secondary(type='button') Share
+                                button.btn.btn-sm.btn-outline-secondary(type='button') Export
+                            button.btn.btn-sm.btn-outline-secondary.dropdown-toggle(type='button')
+                                span(data-feather='calendar')
+                                |             This week
+                    block content
+
+    // Dashboard JS
+    script(src='https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js' integrity='sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE' crossorigin='anonymous')
+    script(src='https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js' integrity='sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha' crossorigin='anonymous')
+    script(src='/assets/js/dashboard.js')
+
+    // Vendor scrits: js libraries and plugins
+    script(src='/assets/theme/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')
+    script(src='/assets/theme/vendor/simplebar/dist/simplebar.min.js')
+    script(src='/assets/theme/vendor/tiny-slider/dist/min/tiny-slider.js')
+    script(src='/assets/theme/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js')
+
+    // Main theme script
+    script(src='/assets/theme/js/theme.min.js')
+
+    // Dependencies
+    script(src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js')
+
+    // Custom JS
+    script(type="module" src='/js/dashboard/category.js')
+    script(type="module" src='/js/dashboard/products.js')
+    script(type="module" src='/js/dashboard/sale.js')

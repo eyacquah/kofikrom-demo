@@ -1,0 +1,66 @@
+extends base
+
+block content
+
+    canvas#myChart.my-4.w-100(width='900' height='380')
+    br
+    br
+    h2 Sales Data
+    br
+    .table-responsive
+        table.table.table-hover
+            thead
+                tr
+                    th(scope='col') Sale ID
+                    th(scope='col') Rep Name
+                    th(scope='col') Target Sale(GHS)
+                    th(scope='col') Actual Sale(GHS)
+                    th(scope='col') Achievement Rate(%)
+                    th(scope='col') Week
+                    th(scope='col') Month
+                    th(scope='col') Year
+
+            tbody
+                each sale in sales
+                    tr
+                        td= sale.id
+                        td= sale.rep.name || 'undefined'
+                        td= sale.targetSale
+                        td= sale.actualSale
+                        td= `${sale.rate}%`
+                        td= sale.date.week
+                        td= sale.date.month
+                        td= sale.date.year
+
+    br
+    br
+    br
+    h2 Collections Data
+    .table-responsive
+        table.table.table-hover
+            thead
+                tr
+                    th(scope='col') Collection ID
+                    th(scope='col') Rep Name
+                    th(scope='col') Target Collection(GHS)
+                    th(scope='col') Actual Collection(GHS)
+                    th(scope='col') Achievement Rate(%)
+                    th(scope='col') Week
+                    th(scope='col') Month
+                    th(scope='col') Year
+
+            tbody
+                each collection in collections
+                    tr
+                        td= collection.id
+                        td= collection.rep.name || 'undefined'
+                        td= collection.targetCollection
+                        td= collection.actualCollection
+                        td= `${collection.rate}%`
+                        td= collection.date.week
+                        td= collection.date.month
+                        td= collection.date.year
+    br
+    br
+    br
+    
